@@ -12,7 +12,7 @@ void setup() {
 	size(640, 480, P2D);
 	bg = loadImage("img/bg.jpg");
   soil = loadImage("img/soil.png");
-  heart = loadImage("img\\life.png");
+  heart = loadImage("img/life.png");
   heart1 = loadImage("img/life.png");
   heart2 = loadImage("img/life.png");
   solider = loadImage("img/soldier.png");
