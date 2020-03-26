@@ -64,13 +64,13 @@ void draw() {
    
    if(robotHand < 40) // grow
    {
-   	line(laserX1 - robotHand,robotY+37,laserX1,robotY+37);
+   	line(laserX1 - robotHand + 25,robotY+37,laserX1+25,robotY+37);
 	  robotHand += laserXSpeed;
    }
    else // move
    {
    	laserX += laserXSpeed;
-	  line(laserX1 - laserX - robotHand,robotY+37,laserX1 - laserX - robotHand + 40,robotY+37);
+	  line(laserX1 - laserX - robotHand+25,robotY+37,laserX1 - laserX - robotHand+25 + 40,robotY+37);
    } 
   
   //razerX= razerX-razerSpeed;
