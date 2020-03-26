@@ -44,12 +44,12 @@ void draw() {
   GroundhogX=280;
   GroundhogY=80;
   image(Groundhog,GroundhogX,GroundhogY);
-  println("robotRandomY=",robotRandomY);
+  //println("robotRandomY=",robotRandomY);
   if(robotRandomY<240){robotY=160;}
   else if(robotRandomY<320){robotY=240;}
   else if(robotRandomY<400){robotY=320;}
   else if(robotRandomY<480){robotY=400;}
-  println("robotY=",robotY);
+  //println("robotY=",robotY);
   strokeWeight(10);
   stroke(255,0,0);
   
@@ -81,11 +81,11 @@ void draw() {
   
   soliderX+=soliderXspeed;
   soliderX=soliderX%(480+160);
-  println("soliderRandomY=",soliderRandomY);
+  //println("soliderRandomY=",soliderRandomY);
   if(soliderRandomY<241){soliderY=160;}
   else if(soliderRandomY<321){soliderY=240;}
   else if(soliderRandomY<401){soliderY=320;}
   else if(soliderRandomY<481){soliderY=400;}
-  println("soliderY=",soliderY);
+  //println("soliderY=",soliderY);
   image(solider,soliderX,soliderY);
 }
