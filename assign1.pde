@@ -53,7 +53,7 @@ void draw() {
   strokeWeight(10);
   stroke(255,0,0);
   
-     if(laserX > 145)
+     if(laserX > 120)
    {
    	laserX = 0;
 	  robotHand = 0;
