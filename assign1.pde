@@ -22,9 +22,9 @@ void setup() {
   robotRandomY=random(160,480);
   soliderRandomY=random(160,480);
   soliderXspeed=1;
-  razerSpeed=2;
-  razerX1=robotX;
-  razerX = 0;//amount
+  laserSpeed=2;
+  laserX1=robotX;
+  laserX = 0;//amount
   robotHand = 0;
 }
 
