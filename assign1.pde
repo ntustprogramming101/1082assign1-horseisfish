@@ -22,7 +22,7 @@ void setup() {
   robotRandomY=random(160,480);
   soliderRandomY=random(160,480);
   soliderXspeed=1;
-  laserSpeed=2;
+  laserXSpeed=2;
   laserX1=robotX;
   laserX = 0;//amount
   robotHand = 0;
