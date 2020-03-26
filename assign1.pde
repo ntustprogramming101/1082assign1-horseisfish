@@ -7,7 +7,7 @@ PImage solider;
 PImage robot;
 PImage soil;
 float GroundhogX,GroundhogY,robotX,robotY,soliderX=0,soliderY,soliderXspeed,robotRandomX,robotRandomY,soliderRandomX=0,soliderRandomY;
-float razerSpeed,razerX,razerY,razerX1;
+float razerSpeed,razerX,razerY,razerX1,robotHand;
 void setup() {
 	size(640, 480, P2D);
 	bg = loadImage("img/bg.jpg");
@@ -23,8 +23,9 @@ void setup() {
   soliderRandomY=random(160,480);
   soliderXspeed=1;
   razerSpeed=2;
-  razerX=robotX;
-  razerX1 = robotX;
+  razerX1=robotX;
+  razerX = 0;//amount
+  robotHand = 0;
 }
 
 void draw() {
@@ -36,7 +37,7 @@ void draw() {
   strokeWeight(5);
   stroke(255,255,0);
   fill(253,184,19);
-  circle(590,50,120);
+  ellipse(590,50,120,120);
   image(heart,10,10);
   image(heart1,80,10);
   image(heart2,150,10);
@@ -52,10 +53,30 @@ void draw() {
   strokeWeight(10);
   stroke(255,0,0);
   
-  razerX= razerX-razerSpeed;
-  razerY=robotY+37;
+     if(laserX > 145)
+   {
+   	laserX = 0;
+	  robotHand = 0;
+   }
+   
+   stroke(255,0,0);
+   strokeWeight(10);
+   
+   if(robotHand < 40) // grow
+   {
+   	line(laserX1 - robotHand - 25,robotY+37,laserX1 - 25,robotY+37);
+	  robotHand += laserXSpeed;
+   }
+   else // move
+   {
+   	laserX += laserXSpeed;
+	  line(laserX1 - laserX - robotHand - 25,robotY+37,laserX1 - laserX - robotHand - 25 + 40,robotY+37);
+   } 
+  
+  //razerX= razerX-razerSpeed;
+  //razerY=robotY+37;
   //razerX=razerX1-razerX%185;
-  line(razerX,razerY,razerX-40,razerY);
+  //line(razerX,razerY,razerX-40,razerY);
   image(robot,robotX,robotY);
   
   soliderX+=soliderXspeed;
