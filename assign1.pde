@@ -3,25 +3,25 @@ PImage Groundhog;
 PImage heart;
 PImage heart1;
 PImage heart2;
-PImage solider;
+PImage soldier;
 PImage robot;
 PImage soil;
-float GroundhogX,GroundhogY,robotX,robotY,soliderX=0,soliderY,soliderXspeed,robotRandomX,robotRandomY,soliderRandomX=0,soliderRandomY;
-float razerSpeed,razerX,razerY,razerX1,robotHand;
+float GroundhogX,GroundhogY,robotX,robotY,soldierX=0,soldierY,soldierXspeed,robotRandomX,robotRandomY,soldierRandomX=0,soldierRandomY;
+float laserXSpeed,laserX1,laserY,laserX,robotHand;
 void setup() {
-	size(640, 480, P2D);
-	bg = loadImage("img/bg.jpg");
+  size(640, 480, P2D);
+  bg = loadImage("img/bg.jpg");
   soil = loadImage("img/soil.png");
   heart = loadImage("img/life.png");
   heart1 = loadImage("img/life.png");
   heart2 = loadImage("img/life.png");
-  solider = loadImage("img/soldier.png");
+  soldier = loadImage("img/soldier.png");
   robot = loadImage("img/robot.png");
   Groundhog = loadImage("img/groundhog.png");
   robotX=random(160,640-80);
   robotRandomY=random(160,480);
-  soliderRandomY=random(160,480);
-  soliderXspeed=1;
+  soldierRandomY=random(160,480);
+  soldierXspeed=1;
   laserXSpeed=2;
   laserX1=robotX;
   laserX = 0;//amount
@@ -29,7 +29,7 @@ void setup() {
 }
 
 void draw() {
-	background(bg);
+  background(bg);
   image(soil,0,160);
   strokeWeight(15);
   stroke(124,204,25);
@@ -50,13 +50,14 @@ void draw() {
   else if(robotRandomY<400){robotY=320;}
   else if(robotRandomY<480){robotY=400;}
   //println("robotY=",robotY);
+  image(robot,robotX,robotY);
   strokeWeight(10);
   stroke(255,0,0);
   
      if(laserX > 120)
    {
-   	laserX = 0;
-	  robotHand = 0;
+     laserX = 0;
+    robotHand = 0;
    }
    
    stroke(255,0,0);
@@ -64,28 +65,28 @@ void draw() {
    
    if(robotHand < 40) // grow
    {
-   	line(laserX1 - robotHand + 25,robotY+37,laserX1+25,robotY+37);
-	  robotHand += laserXSpeed;
+     line(laserX1 - robotHand + 25,robotY+37,laserX1+25,robotY+37);
+    robotHand += laserXSpeed;
    }
    else // move
    {
-   	laserX += laserXSpeed;
-	  line(laserX1 - laserX - robotHand+25,robotY+37,laserX1 - laserX - robotHand+25 + 40,robotY+37);
+     laserX += laserXSpeed;
+    line(laserX1 - laserX - robotHand+25,robotY+37,laserX1 - laserX - robotHand+25 + 40,robotY+37);
    } 
   
   //razerX= razerX-razerSpeed;
   //razerY=robotY+37;
   //razerX=razerX1-razerX%185;
   //line(razerX,razerY,razerX-40,razerY);
-  image(robot,robotX,robotY);
   
-  soliderX+=soliderXspeed;
-  soliderX=soliderX%(480+160);
-  //println("soliderRandomY=",soliderRandomY);
-  if(soliderRandomY<241){soliderY=160;}
-  else if(soliderRandomY<321){soliderY=240;}
-  else if(soliderRandomY<401){soliderY=320;}
-  else if(soliderRandomY<481){soliderY=400;}
-  //println("soliderY=",soliderY);
-  image(solider,soliderX,soliderY);
+  
+  soldierX+=soldierXspeed;
+  soldierX=soldierX%(480+240);
+  //println("soldierRandomY=",soldierRandomY);
+  if(soldierRandomY<241){soldierY=160;}
+  else if(soldierRandomY<321){soldierY=240;}
+  else if(soldierRandomY<401){soldierY=320;}
+  else if(soldierRandomY<481){soldierY=400;}
+  //println("soldierY=",soldierY);
+  image(soldier,soldierX-80,soldierY);
 }
